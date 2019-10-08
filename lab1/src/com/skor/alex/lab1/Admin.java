@@ -9,9 +9,10 @@ import com.skor.alex.lab1.periodicals.Periodical;
 import com.skor.alex.lab1.Controller.*;
 
 public class Admin {
+
+	Controller controller=new Controller();
 	
 	public Admin() {
-		Controller controller=new Controller();
 		while(Start())
 		{			
 		}
@@ -23,21 +24,21 @@ public class Admin {
 			int answer=in.nextInt();
 			switch (answer) {
 			case 1:
-				Controller.ShowRecentSubscribers();
+				controller.ShowRecentSubscribers();
 				break;
 			case 2:
 				break;
 			case 3:
-				Controller.AddItem();
+				controller.AddItem();
 				break;
 			case 4:
-				Controller.EditItem();
+				controller.EditItem();
 				break;
 			case 5:
-				Controller.DeleteItem();
+				controller.DeleteItem();
 				break;
 			case 6:
-				Controller.ShowItem();
+				controller.ShowItem();
 				break;
 			case 0:
 				return false;
