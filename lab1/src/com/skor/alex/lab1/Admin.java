@@ -38,7 +38,7 @@ public class Admin {
 				controller.DeleteItem();
 				break;
 			case 6:
-				controller.ShowItem();
+				controller.ShowAllItems();
 				break;
 			case 0:
 				return false;

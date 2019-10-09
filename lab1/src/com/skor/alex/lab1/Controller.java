@@ -15,9 +15,10 @@ import com.skor.alex.lab1.periodicals.Periodical;
 public class Controller {
 
 	ArrayList<Periodical> periodicals=new ArrayList<Periodical>();
+	private FileParser parser;
 	
 	public Controller() {
-		FileParser parser=new FileParser();
+		this.parser=new FileParser();
 		this.periodicals=parser.GetDataFromFile();
 	}
 	
@@ -26,16 +27,9 @@ public class Controller {
 	}
 	//добавить проверку на заполненность листа
 	public void AddItem() {
-		File file=new File("E:\\Лабы_5сем\\ВТ\\lab1","data.txt");
+		
 		String newData="";
-		if (!file.exists()) {
-			try {
-				file.createNewFile();
-			}
-			catch(IOException e) {
-				System.out.println("File wasn't created. An error occured");
-			}
-		}
+		
 		Scanner scanner=new Scanner(System.in);
 		System.out.println("Enter name of the periodical");
 		newData=newData+scanner.nextLine()+"|";
@@ -47,27 +41,45 @@ public class Controller {
 		newData=newData+scanner.nextLine()+"|";
 		System.out.println("Enter issue's price");
 		newData=newData+scanner.nextLine()+System.getProperty("line.separator");
-		OutputStream os = null;
-        try {
-            os = new FileOutputStream(file, true);
-            os.write(newData.getBytes(), 0, newData.length());
-        } catch (IOException e) {
-        	System.out.println("An error occured. Please, try again");
-        }finally{
-            try {
-                os.close();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }
+		parser.WriteDataInFile(newData);
+	}
+	
+	public ArrayList <Periodical> SearchItem(String name, int issue){
+		return new ArrayList <Periodical> ();
 	}
 	
 	public void EditItem() {
 		Scanner scanner=new Scanner(System.in);
 		System.out.println("Enter name of the periodical");
+		String name=scanner.nextLine();
+		System.out.println("Enter the issue of this periodical");
+		int issue=Integer.parseInt(scanner.nextLine());
+		Periodical curr=new Periodical();
+		curr=SearchItem(name,issue).get(0);
+		System.out.println(curr.name+"   "+curr.name+"   "+curr.price+"   "+curr.theme+"   ");
+		System.out.println("Down here will be shown fields to be edited. If editing isn't necessary, tap Enter");
+		System.out.println("Enter new title");
+		Periodical temp=new Periodical();
+		temp.name=scanner.nextLine();
+		if (temp.name.length()<0)
+			temp.name=curr.name;
+		System.out.println("Enter new issue");
+		temp.issue=scanner.nextInt();
+		if (temp.issue<=0)
+			temp.issue=curr.issue;
+		System.out.println("Enter new tags");
+		temp.tags=scanner.nextLine();
+		if (temp.tags.length()<0){
+			temp.tags=curr.tags;
+		}
+		System.out.println("Enter new price");
+		temp.price=scanner.nextFloat();
+		if (temp.price<=0)
+			temp.price=curr.price;
+		parser.WriteEditedData(curr,temp);
 	}
 	
-	public void ShowItem() {
+	public void ShowAllItems() {
 		Periodical temp=new Periodical();
 		for(int i=0;i<periodicals.size();i++) {
 			temp=periodicals.get(i);

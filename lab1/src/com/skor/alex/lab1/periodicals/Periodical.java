@@ -11,10 +11,12 @@ public class Periodical implements Serializable {
 	public String name;
 	public String theme;
 	public int issue;
-	public ArrayList<String> tags;
+	public String tags;
 	public float price;
 	
-	private int myCatalogueNumber;
+	/*private int myCatalogueNumber;
 	
-	
+	public int GetCtlgNumb() {
+		return this.myCatalogueNumber;
+	}*/
 }
