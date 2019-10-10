@@ -50,9 +50,9 @@ public class FileParser {
 		return periodicals;
 	}
 	
-	public boolean WriteDataInFile(String newData) {
+	public boolean WriteDataInFile(String newData,boolean createNew) {
 		File file=new File("E:\\Лабы_5сем\\ВТ\\lab1","data.txt");
-		if (!file.exists()) {
+		if ((!file.exists())) {
 			try {
 				file.createNewFile();
 			}
@@ -62,7 +62,13 @@ public class FileParser {
 		}
 		OutputStream os = null;
         try {
-            os = new FileOutputStream(file, true);
+        	if(createNew) {
+        		os = new FileOutputStream(file, false);
+        	}else {
+        		
+                os = new FileOutputStream(file, true);
+        		
+        	}
             os.write(newData.getBytes(), 0, newData.length());
         } catch (IOException e) {
         	System.out.println("An error occured. Please, try again");
@@ -76,10 +82,27 @@ public class FileParser {
 		return true;
 	}
 	
+	/*public Periodical SearchForItem(String name, int issue){
+		File file=new File("E:\\Лабы_5сем\\ВТ\\lab1","data.txt");
+		try {
+			final LineNumberReader lnr = new LineNumberReader( new FileReader(file)); 
+			String line;
+			String [] substrings=new String [6] ;
+			while((line=lnr.readLine())!=null) { 
+				substrings=line.split("\\|");
+				if ((substrings[0]==name)&&(Integer.parseInt(substrings[4])==issue))
+					return true;
+			}
+		}catch(IOException ioe) {
+			System.out.println("An internal error occured");
+		}
+		return false;
+	}*/
+	
 	public void WriteEditedData(Periodical prev,Periodical curr) {
 		File file=new File("E:\\Лабы_5сем\\ВТ\\lab1","data.txt");
 		String searchWord=prev.name+"|"+prev.theme+"|"+prev.issue+"|"+prev.tags+"|"+prev.price;
-		String changeWord=prev.name+"|"+prev.theme+"|"+prev.issue+"|"+prev.tags+"|"+prev.price;
+		String changeWord=curr.name+"|"+curr.theme+"|"+curr.issue+"|"+curr.tags+"|"+curr.price;
 		if (file.exists()) {
 			StringBuilder sb = new StringBuilder();
 		
