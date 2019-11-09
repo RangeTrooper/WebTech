@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<p:record xmlns:p="http://epamlab.alex.skor.com/lab2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://epamlab.alex.skor.com/lab2 MyShema.xsd ">
+	<p:info category="cars">
+		<p:name>Top Gear</p:name>
+		<p:type>Magazine</p:type>
+		<p:issue>13</p:issue>
+		<p:tags>cars,automobiles,monthly</p:tags>
+		<p:price>14.55</p:price>
+		<p:ID>002011014</p:ID>
+	</p:info>
+	<p:info category="cars">
+		<p:name>Top Gear</p:name>
+		<p:type>Magazine</p:type>
+		<p:issue>45</p:issue>
+		<p:tags>cars,automobiles,monthly</p:tags>
+		<p:price>16.10</p:price>
+		<p:ID>002045018</p:ID>
+	</p:info>
+	<p:info category="science">
+		<p:name>The Science</p:name>
+		<p:type>Magazine</p:type>
+		<p:issue>46</p:issue>
+		<p:tags>science,research,technology,health</p:tags>
+		<p:price>17.8</p:price>
+		<p:ID>012046019</p:ID>
+	</p:info>
+	<p:info category="news">
+		<p:name>The New York Times</p:name>
+		<p:type>Newspaper</p:type>
+		<p:issue>1221</p:issue>
+		<p:tags>news,articles,politics</p:tags>
+		<p:price>8.9</p:price>
+		<p:ID>0031221019</p:ID>
+	</p:info>
+	<p:info category="comics">
+		<p:name>ComicArt</p:name>
+		<p:type>Brochure</p:type>
+		<p:issue>41</p:issue>
+		<p:tags>comics,teenagers,pictures</p:tags>
+		<p:price>7.3</p:price>
+		<p:ID>102041018</p:ID>
+	</p:info>
+	<p:info>
+		<p:name>Men's Health</p:name>
+		<p:type>Magazine</p:type>
+		<p:issue>25</p:issue>
+		<p:tags>healthcare,weekly,science</p:tags>
+		<p:price>12.00</p:price>
+		<p:ID>052025016</p:ID>
+	</p:info></p:record>
