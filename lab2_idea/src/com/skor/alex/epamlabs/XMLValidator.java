@@ -17,7 +17,7 @@ public class XMLValidator {
                     SchemaFactory.newInstance(XMLConstants.W3C_XML_SCHEMA_NS_URI);
             Schema schema = factory.newSchema(new File("E:\\Лабы_5сем\\ВТ\\lab2\\lab2\\bin\\com\\skor\\alex\\lab2\\MyShema.xsd"));
             Validator validator = schema.newValidator();
-            ((Validator) validator).validate(new StreamSource(new File("E:\\Лабы_5сем\\ВТ\\lab2\\lab2\\bin\\com\\skor\\alex\\lab2\\MyShema.xml")));
+            ((Validator) validator).validate(new StreamSource(new File("E:\\Лабы_5сем\\ВТ\\lab2_idea\\misc\\MyShema.xml")));
         } catch (IOException e){
             return false;
         } catch (SAXException e) {

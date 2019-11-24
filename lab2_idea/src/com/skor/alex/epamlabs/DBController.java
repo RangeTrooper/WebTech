@@ -4,6 +4,10 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
+
+import com.skor.alex.epamlabs.Periodical;
 
 public class DBController {
     private Connection connection;
@@ -28,8 +32,20 @@ public class DBController {
         }
     }
 
-    private void PushData(){
+    public void PushData(List<Periodical> data){
+        String command="";
+        try {
+            Statement statement=connection.createStatement();
 
+        for(Periodical temp:data){
+            command="INSERT INTO data"+"(category,name,type,issue,tags,price,id) VALUES ('"+temp.getCategory()
+                    +"','"+temp.getName()+"','"+temp.getType()+"',"+temp.getIssue()+",'"+temp.getTags()+"',"+
+                    temp.getPrice()+","+temp.getID()+")";
+            statement.executeUpdate(command);
+        }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
     public void EstablishConnection(){
